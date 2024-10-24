@@ -57,9 +57,9 @@ export default function DarkModeToggle() {
     return (
         <button onClick={toggleDarkMode}>
             {isDarkMode ? (
-                <img src="/images/icon-moon.svg" alt="Moon icon" />
-            ) : (
                 <img src="/images/icon-sun.svg" alt="Sun icon" />
+            ) : (
+                <img src="/images/icon-moon.svg" alt="Moon icon" />
             )}
         </button>
     );

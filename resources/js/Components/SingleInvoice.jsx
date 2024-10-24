@@ -18,28 +18,39 @@ export default function SingleInvoice({ element }) {
 
     return (
         <>
-            <div className="mx-6 grid grid-cols-2 content-between rounded-lg bg-white p-6 text-color-08 md:grid-cols-5 md:items-center dark:bg-color-03 dark:text-white">
+            <div className="invoice-card md:*:col-auto md:*:row-auto">
+                {/* ID */}
                 <p className="pb-6 text-lg-variant md:p-0">
                     <span className="text-color-07">#</span>
                     {element.id}
                 </p>
-                <p className="justify-self-end text-base-variant text-[#858BB2] md:justify-self-auto dark:text-white">
-                    {element.clientName}
-                </p>
-                <p className="pb-2 text-base-variant text-color-07 md:p-0 dark:text-color-05">
+
+                {/* Due Payment Date */}
+                <p className="col-start-1 pb-2 text-base-variant text-color-07 md:p-0 dark:text-color-05">
                     <span className="text-color-06 dark:text-color-05">
                         Due{' '}
                     </span>
                     {format(new Date(element.paymentDue), 'dd MMM yyyy')}
                 </p>
-                <p className="col-start-1 text-lg md:col-auto">{totalMoney}</p>
-                <div className="items-center gap-2 justify-self-end md:flex">
+
+                {/* Name */}
+                <p className="col-start-2 row-start-1 justify-self-end text-base-variant text-[#858BB2] md:justify-self-auto dark:text-white">
+                    {element.clientName}
+                </p>
+
+                {/* Total Money */}
+                <p className="col-start-1 text-lg">{totalMoney}</p>
+
+                <div className="col-start-2 row-start-2 row-end-4 items-center gap-4 justify-self-end md:flex">
+                    {/* Status */}
                     <div
-                        className={`${status} col-start-2 row-start-2 row-end-4 flex h-fit w-[6.5rem] items-baseline justify-center gap-2 justify-self-end rounded-lg px-2 py-3 text-lg-variant capitalize md:col-auto md:row-auto`}
+                        className={`${status} flex h-fit w-[6.5rem] items-baseline justify-center gap-2 justify-self-end rounded-lg px-2 py-3 text-lg-variant capitalize`}
                     >
                         <span className="inline h-2 w-2 rounded-full"></span>
                         {element.status}
                     </div>
+
+                    {/* Arrow Icon */}
                     <img
                         className="hidden md:flex"
                         src="/images/icon-arrow-right.svg"

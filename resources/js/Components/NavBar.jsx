@@ -9,7 +9,7 @@ export default function NavBar() {
                 <div className="flex h-fit justify-between">
                     <div className="flex items-center bg-custom-bg bg-contain bg-no-repeat p-4">
                         <Link href="/">
-                            <ApplicationLogo className="block h-10 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                            <ApplicationLogo className="block h-10 w-auto fill-current text-white" />
                         </Link>
                     </div>
                     <div className="flex items-center justify-evenly gap-6">

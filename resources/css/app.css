@@ -23,9 +23,12 @@
 
 @layer components {
     .links {
-        @apply text-lg rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-color-01 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white;
+        @apply rounded-md px-3 py-2 text-lg text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-color-01 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white;
     }
     .welcome-button {
         @apply rounded-3xl bg-color-01 px-10 py-2 text-center text-[1.2rem] font-bold text-white hover:bg-transparent hover:text-color-01 hover:ring-2 hover:ring-color-01;
+    }
+    .invoice-card {
+        @apply mx-6 grid grid-cols-2 content-between rounded-lg bg-white p-6 text-color-08 md:grid-cols-5 md:items-center dark:bg-color-03 dark:text-white;
     }
 }
