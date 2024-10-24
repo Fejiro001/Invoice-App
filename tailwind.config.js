@@ -9,7 +9,7 @@ export default {
         './resources/views/**/*.blade.php',
         './resources/js/**/*.jsx',
     ],
-
+    darkMode: 'selector',
     theme: {
         extend: {
             backgroundImage: {
@@ -32,6 +32,9 @@ export default {
                 'color-11': '#F8F8FB',
                 'color-12': '#141625',
                 'navbar-bg': '#373B53',
+                paid: '#33D69F',
+                pending: '#FF8F00',
+                draft: '#373B53',
             },
             fontSize: {
                 base: [
@@ -53,7 +56,7 @@ export default {
                 lg: [
                     '0.938rem', //15px
                     {
-                        lineHeight: '1.5rem',
+                        lineHeight: '1.5rem', //24px
                         letterSpacing: '-0.016em',
                         fontWeight: '700',
                     },

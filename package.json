@@ -28,5 +28,9 @@
         "react-dom": "^18.2.0",
         "tailwindcss": "^3.2.1",
         "vite": "^5.0"
+    },
+    "dependencies": {
+        "currency.js": "^2.0.4",
+        "date-fns": "^4.1.0"
     }
 }

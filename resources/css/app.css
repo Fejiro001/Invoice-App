@@ -8,8 +8,7 @@
     font-style: normal;
     font-weight: 500;
     src:
-        url('/fonts/league-spartan-v11-latin-500.woff2')
-            format('woff2'),
+        url('/fonts/league-spartan-v11-latin-500.woff2') format('woff2'),
         url('/fonts/league-spartan-v11-latin-500.ttf') format('truetype');
 }
 @font-face {
@@ -20,4 +19,13 @@
     src:
         url('/fonts/league-spartan-v11-latin-700.woff2') format('woff2'),
         url('/fonts/league-spartan-v11-latin-700.ttf') format('truetype');
+}
+
+@layer components {
+    .links {
+        @apply text-lg rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-color-01 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white;
+    }
+    .welcome-button {
+        @apply rounded-3xl bg-color-01 px-10 py-2 text-center text-[1.2rem] font-bold text-white hover:bg-transparent hover:text-color-01 hover:ring-2 hover:ring-color-01;
+    }
 }
