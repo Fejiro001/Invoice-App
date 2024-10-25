@@ -31,6 +31,7 @@
     },
     "dependencies": {
         "currency.js": "^2.0.4",
-        "date-fns": "^4.1.0"
+        "date-fns": "^4.1.0",
+        "react-responsive": "^10.0.0"
     }
 }

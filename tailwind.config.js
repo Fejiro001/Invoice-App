@@ -41,15 +41,15 @@ export default {
                     '0.813rem', //13px
                     {
                         lineHeight: '1.125rem', //18px
-                        letterSpacing: '-0.006em',
+                        letterSpacing: '-0.1px',
                         fontWeight: '500',
                     },
                 ],
                 'base-variant': [
-                    '0.813rem', //13px
+                    'clamp(0.813rem, calc(0.518rem + 0.614vw), 1.5rem)', //13px
                     {
                         lineHeight: '0.938rem', //15px
-                        letterSpacing: '-0.006em',
+                        letterSpacing: '-0.1px',
                         fontWeight: '500',
                     },
                 ],
@@ -57,7 +57,7 @@ export default {
                     '0.938rem', //15px
                     {
                         lineHeight: '1.5rem', //24px
-                        letterSpacing: '-0.016em',
+                        letterSpacing: '-0.25px',
                         fontWeight: '700',
                     },
                 ],
@@ -65,7 +65,7 @@ export default {
                     '0.938rem', //15px
                     {
                         lineHeight: '0.938rem', //15px
-                        letterSpacing: '-0.016em',
+                        letterSpacing: '-0.25px',
                         fontWeight: '700',
                     },
                 ],
@@ -73,7 +73,7 @@ export default {
                     '1.5rem', //24px
                     {
                         lineHeight: '1.375rem',
-                        letterSpacing: '-0.047em',
+                        letterSpacing: '-0.75px',
                         fontWeight: '700',
                     },
                 ],
@@ -81,10 +81,13 @@ export default {
                     '2.25rem', //36px
                     {
                         lineHeight: '2.063rem',
-                        letterSpacing: '-0.063em',
+                        letterSpacing: '-1.13px',
                         fontWeight: '700',
                     },
                 ],
+            },
+            gridTemplateColumns: {
+                5: '6rem repeat(4, minmax(0, 1fr))',
             },
         },
     },

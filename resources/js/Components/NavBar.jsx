@@ -4,21 +4,22 @@ import DarkModeToggle from './DarkModeToggle';
 
 export default function NavBar() {
     return (
-        <nav className="fixed top-0 z-50 w-full bg-navbar-bg dark:bg-color-03">
-            <div className="max-w-7xl pe-6 sm:pe-6 lg:pe-8">
-                <div className="flex h-fit justify-between">
-                    <div className="flex items-center bg-custom-bg bg-contain bg-no-repeat p-4">
+        <nav className="main-nav">
+            <div className="max-w-7xl lg:h-full lg:w-[6.5rem]">
+                <div className="flex h-fit justify-between md:h-20 lg:block">
+                    <div className="flex items-center bg-custom-bg bg-contain bg-no-repeat p-4 md:p-5 lg:p-8">
                         <Link href="/">
                             <ApplicationLogo className="block h-10 w-auto fill-current text-white" />
                         </Link>
                     </div>
-                    <div className="flex items-center justify-evenly gap-6">
+
+                    <div className="flex items-center justify-evenly gap-6 pe-6 lg:absolute lg:bottom-0 lg:w-full lg:flex-col lg:pb-4 lg:pe-0">
                         <DarkModeToggle />
-                        <div className="h-full w-[1px] bg-[#494E6E]"></div>
+                        <div className="h-full w-[1px] bg-[#494E6E] lg:h-[1px] lg:w-full"></div>
                         <Link href="/profile">
-                            <div>
+                            <div className="md:px-2">
                                 <img
-                                    className="h-8 w-8 rounded-full"
+                                    className="h-8 w-8 rounded-full lg:h-10 lg:w-10"
                                     src="/images/image-avatar.jpg"
                                     alt="logged in users profile image"
                                 />

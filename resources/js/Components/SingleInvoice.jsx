@@ -26,7 +26,7 @@ export default function SingleInvoice({ element }) {
                 </p>
 
                 {/* Due Payment Date */}
-                <p className="col-start-1 pb-2 text-base-variant text-color-07 md:p-0 dark:text-color-05">
+                <p className="col-start-1 pb-2 text-base-variant text-color-07 md:p-0 lg:ps-4 dark:text-color-05">
                     <span className="text-color-06 dark:text-color-05">
                         Due{' '}
                     </span>
@@ -34,12 +34,14 @@ export default function SingleInvoice({ element }) {
                 </p>
 
                 {/* Name */}
-                <p className="col-start-2 row-start-1 justify-self-end text-base-variant text-[#858BB2] md:justify-self-auto dark:text-white">
+                <p className="col-start-2 row-start-1 justify-self-end text-base-variant text-[#858BB2] md:justify-self-auto md:ps-2 lg:ps-4 dark:text-white">
                     {element.clientName}
                 </p>
 
                 {/* Total Money */}
-                <p className="col-start-1 text-lg">{totalMoney}</p>
+                <p className="col-start-1 text-lg md:justify-self-end md:pe-8 lg:pe-6">
+                    {totalMoney}
+                </p>
 
                 <div className="col-start-2 row-start-2 row-end-4 items-center gap-4 justify-self-end md:flex">
                     {/* Status */}

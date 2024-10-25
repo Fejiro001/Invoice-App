@@ -29,6 +29,9 @@
         @apply rounded-3xl bg-color-01 px-10 py-2 text-center text-[1.2rem] font-bold text-white hover:bg-transparent hover:text-color-01 hover:ring-2 hover:ring-color-01;
     }
     .invoice-card {
-        @apply mx-6 grid grid-cols-2 content-between rounded-lg bg-white p-6 text-color-08 md:grid-cols-5 md:items-center dark:bg-color-03 dark:text-white;
+        @apply mx-6 grid grid-cols-2 content-between rounded-lg bg-white p-6 text-color-08 md:mx-0 md:grid-cols-5 md:items-center md:py-[1.1rem] dark:bg-color-03 dark:text-white;
+    }
+    .main-nav {
+        @apply fixed top-0 z-50 w-full bg-navbar-bg lg:left-0 lg:top-0 lg:h-full lg:w-fit lg:rounded-tr-[1.7rem] dark:bg-color-03;
     }
 }
