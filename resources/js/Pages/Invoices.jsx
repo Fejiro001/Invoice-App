@@ -1,6 +1,5 @@
 import SingleInvoice from '@/Components/SingleInvoice';
-import data from '/data.json';
-export default function Invoices() {
+export default function Invoices({ data }) {
     return (
         <>
             <ol className="space-y-4 pb-16">

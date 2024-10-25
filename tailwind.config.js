@@ -46,7 +46,7 @@ export default {
                     },
                 ],
                 'base-variant': [
-                    'clamp(0.813rem, calc(0.518rem + 0.614vw), 1.5rem)', //13px
+                    '0.813rem', //13px
                     {
                         lineHeight: '0.938rem', //15px
                         letterSpacing: '-0.1px',
