@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Invoice extends Model
 {
@@ -30,4 +31,25 @@ class Invoice extends Model
      * @var string
      */
     protected $keyType = 'string';
+
+    // Boot method to automatically generate an ID on creation
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($invoice) {
+            $invoice->id = self::generateUniqueID();
+        });
+    }
+
+    // Method to generate a unique ID in the format of XX1234
+    public static function generateUniqueID()
+    {
+        do {
+            // Generate a random ID: 2 uppercase letters + 4 digits
+            $id = strtoupper(Str::random(2)) . rand(1000, 9999);
+        } while (self::where('id', $id)->exists()); // Ensure uniqueness
+
+        return $id;
+    }
 }
