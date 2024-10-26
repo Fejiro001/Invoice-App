@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -15,13 +16,22 @@ Route::get('/', function () {
 })->middleware('guest');
 
 Route::get('/home', function () {
-    return Inertia::render('Home');
+    return Inertia::render('Invoice/Home');
 })->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::name('invoices')->group(function () {
+    Route::get('/invoices/{invoice}', [InvoiceController::class, 'show'])->name('show');
+    Route::get('/invoices/create', [InvoiceController::class, 'create'])->name('create');
+    Route::post('/invoices', [InvoiceController::class, 'store'])->name('store');
+    Route::get('/invoices/{invoice}/edit', [InvoiceController::class, 'edit'])->name('edit');
+    Route::patch('/invoices/{invoice}', [InvoiceController::class, 'update'])->name('update');
+    Route::delete('/invoices/{invoice}', [InvoiceController::class, 'destroy'])->name('destroy');
 });
 
 require __DIR__ . '/auth.php';
