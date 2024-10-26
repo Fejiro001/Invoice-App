@@ -1,6 +1,6 @@
 export default function NoInvoices({ isMobile }) {
     return (
-        <div className="flex flex-col items-center justify-center gap-12 md:gap-14 pt-16 text-center md:h-full md:pt-0">
+        <div className="flex flex-col items-center justify-center gap-12 pt-16 text-center md:h-full md:gap-14 md:pt-0">
             <img
                 className="w-48 md:w-56"
                 src="/images/illustration-empty.svg"
