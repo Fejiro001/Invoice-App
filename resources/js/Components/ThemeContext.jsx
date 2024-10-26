@@ -13,7 +13,11 @@ export const ThemeProvider = ({ children }) => {
     useEffect(() => {
         // Apply theme
         const applyTheme = (theme) => {
-            document.documentElement.classList.toggle('dark', theme === 'dark');
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
             setIsDarkMode(theme === 'dark'); // check
         };
 

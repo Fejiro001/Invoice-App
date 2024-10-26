@@ -43,7 +43,6 @@ export default function Welcome({ auth }) {
                                     </Link>
                                     <Link
                                         href={route('register')}
-                                        method="post"
                                         className="links"
                                     >
                                         Register
