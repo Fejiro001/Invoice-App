@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
@@ -33,9 +35,9 @@ class InvoiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Invoice $invoice)
     {
-        //
+        return Inertia::render('Invoice/Show', compact('invoice'));
     }
 
     /**

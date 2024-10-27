@@ -33,12 +33,10 @@ class Invoice extends Model
     protected $keyType = 'string';
 
     // Boot method to automatically generate an ID on creation
-    protected static function boot()
+    protected static function booted()
     {
-        parent::boot();
-
         static::creating(function ($invoice) {
-            $invoice->id = self::generateUniqueID();
+            $invoice->invoice_id = self::generateUniqueID();
         });
     }
 
@@ -48,7 +46,7 @@ class Invoice extends Model
         do {
             // Generate a random ID: 2 uppercase letters + 4 digits
             $id = strtoupper(Str::random(2)) . rand(1000, 9999);
-        } while (self::where('id', $id)->exists()); // Ensure uniqueness
+        } while (self::where('invoice_id', $id)->exists()); // Ensure uniqueness
 
         return $id;
     }
