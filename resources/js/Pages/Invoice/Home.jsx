@@ -4,21 +4,20 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { useMediaQuery } from 'react-responsive';
 import Invoices from './Invoices';
-import data from '/data.json';
 
-export default function Home() {
+export default function Home({ invoices }) {
     const isMobile = useMediaQuery({ query: '(max-width:767px)' });
 
     return (
         <AuthenticatedLayout
-            header={<HomeHeader data={data} isMobile={isMobile} />}
+            header={<HomeHeader invoices={invoices} isMobile={isMobile} />}
         >
             <Head title="Home" />
 
-            {data.length === 0 ? (
+            {invoices.length === 0 ? (
                 <NoInvoices isMobile={isMobile} />
             ) : (
-                <Invoices data={data} />
+                <Invoices invoices={invoices} key={invoices.invoice_id} />
             )}
         </AuthenticatedLayout>
     );

@@ -1,10 +1,15 @@
 import SingleInvoice from '@/Components/SingleInvoice';
-export default function Invoices({ data }) {
+export default function Invoices({ invoices }) {
     return (
         <>
             <ol className="space-y-4 pb-16">
-                {data.map((element) => {
-                    return <SingleInvoice key={element.id} element={element} />;
+                {invoices.map((invoices) => {
+                    return (
+                        <SingleInvoice
+                            key={invoices.invoice_id}
+                            invoices={invoices}
+                        />
+                    );
                 })}
             </ol>
         </>

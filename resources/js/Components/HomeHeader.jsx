@@ -1,10 +1,10 @@
-export default function HomeHeader({ data, isMobile }) {
+export default function HomeHeader({ invoices, isMobile }) {
     return (
         <div className="flex justify-between text-color-08 dark:text-white">
             <div className="flex flex-col justify-between md:gap-2">
                 <h1 className="text-xl md:text-2xl">Invoices</h1>
                 <p className="text-base-variant text-color-06 dark:text-color-05">
-                    {data.length === 0
+                    {invoices.length === 0
                         ? 'No Invoices'
                         : isMobile
                           ? '7 invoices'

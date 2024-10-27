@@ -21,14 +21,15 @@ return new class extends Migration {
             $table->string('status');
             $table->json('sender_address');
             $table->json('client_address');
-            $table->decimal('total', 10, 2);
+            $table->decimal('total', 10, 2)->default(0.00);
 
             $table->timestamps(); //created_at column
         });
 
-        Schema::create('invoices_items', function (Blueprint $table) {
+        Schema::create('invoice_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('invoice_id')->constrained()->cascadeOnDelete();
+            $table->string('invoice_id');
+            $table->foreign('invoice_id')->references('invoice_id')->on('invoices')->cascadeOnDelete();
             $table->string('name');
             $table->integer('quantity');
             $table->decimal('price', 10, 2);
@@ -44,6 +45,6 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::dropIfExists('invoices');
-        Schema::dropIfExists('invoices_items');
+        Schema::dropIfExists('invoice_items');
     }
 };

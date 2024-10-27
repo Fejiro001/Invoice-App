@@ -10,14 +10,10 @@ Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
     ]);
 })->middleware('guest');
 
-Route::get('/home', function () {
-    return Inertia::render('Invoice/Home');
-})->middleware(['auth', 'verified'])->name('home');
+Route::get('/home', [InvoiceController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -25,13 +21,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::name('invoices')->group(function () {
+Route::name('invoice')->group(function () {
     Route::get('/invoices/{invoice}', [InvoiceController::class, 'show'])->name('show');
     Route::get('/invoices/create', [InvoiceController::class, 'create'])->name('create');
     Route::post('/invoices', [InvoiceController::class, 'store'])->name('store');
     Route::get('/invoices/{invoice}/edit', [InvoiceController::class, 'edit'])->name('edit');
     Route::patch('/invoices/{invoice}', [InvoiceController::class, 'update'])->name('update');
     Route::delete('/invoices/{invoice}', [InvoiceController::class, 'destroy'])->name('destroy');
-});
+})->middleware(['auth']);
 
 require __DIR__ . '/auth.php';

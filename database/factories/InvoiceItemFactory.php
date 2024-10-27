@@ -19,9 +19,9 @@ class InvoiceItemFactory extends Factory
     {
         return [
             'invoice_id' => Invoice::factory(),
-            'name' => $this->faker->sentence(2),
+            'name' => $this->faker->bs(),
             'quantity' => $this->faker->numberBetween(1, 10),
-            'price' => $this->faker->randomFloat(2, 100, 20000),
+            'price' => $this->faker->randomFloat(2, 100, 1000),
             'total' => function(array $attributes) {
                 return $attributes['quantity'] * $attributes['price'];
             },

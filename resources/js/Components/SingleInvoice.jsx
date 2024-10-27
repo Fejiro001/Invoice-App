@@ -1,8 +1,8 @@
 import currency from 'currency.js';
 import { format } from 'date-fns';
 
-export default function SingleInvoice({ element }) {
-    const totalMoney = currency(element.total, {
+export default function SingleInvoice({ invoices }) {
+    const total = currency(invoices.total, {
         symbol: '£ ',
         precision: 2,
     }).format();
@@ -13,7 +13,7 @@ export default function SingleInvoice({ element }) {
     };
     // Default to draft if the status is not 'paid' or 'pending'
     const status =
-        statusClasses[element.status] ||
+        statusClasses[invoices.status] ||
         'bg-draft/10 *:bg-draft text-draft dark:bg-draft/30 dark:*:bg-color-05 dark:text-color-05';
 
     return (
@@ -22,7 +22,7 @@ export default function SingleInvoice({ element }) {
                 {/* ID */}
                 <p className="pb-6 text-lg-variant md:p-0">
                     <span className="text-color-07">#</span>
-                    {element.id}
+                    {invoices.invoice_id}
                 </p>
 
                 {/* Due Payment Date */}
@@ -30,17 +30,17 @@ export default function SingleInvoice({ element }) {
                     <span className="text-color-06 dark:text-color-05">
                         Due{' '}
                     </span>
-                    {format(new Date(element.paymentDue), 'dd MMM yyyy')}
+                    {format(new Date(invoices.payment_due), 'dd MMM yyyy')}
                 </p>
 
                 {/* Name */}
                 <p className="col-start-2 row-start-1 justify-self-end text-base-variant text-[#858BB2] md:justify-self-auto md:ps-2 lg:ps-4 dark:text-white">
-                    {element.clientName}
+                    {invoices.client_name}
                 </p>
 
                 {/* Total Money */}
                 <p className="col-start-1 text-lg md:justify-self-end md:pe-8 lg:pe-6">
-                    {totalMoney}
+                    {total}
                 </p>
 
                 <div className="col-start-2 row-start-2 row-end-4 items-center gap-4 justify-self-end md:flex">
@@ -49,7 +49,7 @@ export default function SingleInvoice({ element }) {
                         className={`${status} flex h-fit w-[6.5rem] items-baseline justify-center gap-2 justify-self-end rounded-lg px-2 py-3 text-lg-variant capitalize`}
                     >
                         <span className="inline h-2 w-2 rounded-full"></span>
-                        {element.status}
+                        {invoices.status}
                     </div>
 
                     {/* Arrow Icon */}

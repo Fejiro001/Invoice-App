@@ -18,9 +18,12 @@ class InvoiceSeeder extends Seeder
             ->count(10)
             ->create()
             ->each(function ($invoice) {
-                InvoiceItem::factory()
+                $items = InvoiceItem::factory()
                     ->count(3)
                     ->create(['invoice_id' => $invoice->invoice_id]);
+
+                $invoiceTotal = $items->sum('total');
+                $invoice->update(['total' => $invoiceTotal]);
             });
     }
 }
