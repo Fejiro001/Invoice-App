@@ -50,4 +50,8 @@ class Invoice extends Model
 
         return $id;
     }
+
+    public function invoiceItem () {
+        return $this->hasMany(InvoiceItem::class);
+    }
 }
