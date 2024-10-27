@@ -1,5 +1,6 @@
 import HomeHeader from '@/Components/HomeHeader';
 import NoInvoices from '@/Components/NoInvoices';
+import Paginator from '@/Components/Paginator';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { useMediaQuery } from 'react-responsive';
@@ -17,8 +18,15 @@ export default function Home({ invoices }) {
             {invoices.length === 0 ? (
                 <NoInvoices isMobile={isMobile} />
             ) : (
-                <Invoices invoices={invoices} key={invoices.invoice_id} />
+                <Invoices invoices={invoices.data} key={invoices.invoice_id} />
             )}
+
+            <Paginator
+                currentPage={invoices.current_page}
+                lastPage={invoices.last_page}
+                prevPageUrl={invoices.prev_page_url}
+                nextPageUrl={invoices.next_page_url}
+            />
         </AuthenticatedLayout>
     );
 }
