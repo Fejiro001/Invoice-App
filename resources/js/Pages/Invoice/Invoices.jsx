@@ -2,12 +2,12 @@ import SingleInvoice from '@/Components/SingleInvoice';
 export default function Invoices({ invoices }) {
     return (
         <>
-            <ol className="space-y-4 pb-16">
-                {invoices.map((invoices) => {
+            <ol className="flex flex-col gap-4 pb-16">
+                {invoices.map((invoice) => {
                     return (
                         <SingleInvoice
-                            key={invoices.invoice_id}
-                            invoices={invoices}
+                            key={invoice.invoice_id}
+                            invoice={invoice}
                         />
                     );
                 })}

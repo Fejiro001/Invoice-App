@@ -36,6 +36,9 @@ export default {
                 pending: '#FF8F00',
                 draft: '#373B53',
             },
+            dropShadow: {
+                md: '0 10px 10px rgba(72, 84, 159, 10.04%)',
+            },
             fontSize: {
                 base: [
                     '0.813rem', //13px

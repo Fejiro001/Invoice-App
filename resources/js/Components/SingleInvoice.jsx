@@ -1,8 +1,9 @@
+import { Link } from '@inertiajs/react';
 import currency from 'currency.js';
 import { format } from 'date-fns';
 
-export default function SingleInvoice({ invoices }) {
-    const total = currency(invoices.total, {
+export default function SingleInvoice({ invoice }) {
+    const total = currency(invoice.total, {
         symbol: '£ ',
         precision: 2,
     }).format();
@@ -13,16 +14,16 @@ export default function SingleInvoice({ invoices }) {
     };
     // Default to draft if the status is not 'paid' or 'pending'
     const status =
-        statusClasses[invoices.status] ||
+        statusClasses[invoice.status] ||
         'bg-draft/10 *:bg-draft text-draft dark:bg-draft/30 dark:*:bg-color-05 dark:text-color-05';
 
     return (
-        <>
-            <div className="invoice-card md:*:col-auto md:*:row-auto">
+        <Link href={route('invoice.show', invoice)}>
+            <div className="invoice-card hover:cursor-pointer hover:ring-1 hover:ring-color-01 hover:drop-shadow-md md:*:col-auto md:*:row-auto">
                 {/* ID */}
                 <p className="pb-6 text-lg-variant md:p-0">
                     <span className="text-color-07">#</span>
-                    {invoices.invoice_id}
+                    {invoice.invoice_id}
                 </p>
 
                 {/* Due Payment Date */}
@@ -30,12 +31,12 @@ export default function SingleInvoice({ invoices }) {
                     <span className="text-color-06 dark:text-color-05">
                         Due{' '}
                     </span>
-                    {format(new Date(invoices.payment_due), 'dd MMM yyyy')}
+                    {format(new Date(invoice.payment_due), 'dd MMM yyyy')}
                 </p>
 
                 {/* Name */}
                 <p className="col-start-2 row-start-1 justify-self-end text-base-variant text-[#858BB2] md:justify-self-auto md:ps-2 lg:ps-4 dark:text-white">
-                    {invoices.client_name}
+                    {invoice.client_name}
                 </p>
 
                 {/* Total Money */}
@@ -49,7 +50,7 @@ export default function SingleInvoice({ invoices }) {
                         className={`${status} flex h-full w-[6.5rem] items-center justify-center gap-2 justify-self-end rounded-lg px-2 py-3 text-lg-variant capitalize`}
                     >
                         <span className="inline h-2 w-2 rounded-full"></span>
-                        {invoices.status}
+                        {invoice.status}
                     </div>
 
                     {/* Arrow Icon */}
@@ -59,6 +60,6 @@ export default function SingleInvoice({ invoices }) {
                     />
                 </div>
             </div>
-        </>
+        </Link>
     );
 }

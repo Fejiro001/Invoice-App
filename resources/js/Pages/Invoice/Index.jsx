@@ -6,26 +6,26 @@ import { Head } from '@inertiajs/react';
 import { useMediaQuery } from 'react-responsive';
 import Invoices from './Invoices';
 
-export default function Home({ invoices }) {
+export default function Index({ invoice }) {
     const isMobile = useMediaQuery({ query: '(max-width:767px)' });
 
     return (
         <AuthenticatedLayout
-            header={<HomeHeader invoices={invoices} isMobile={isMobile} />}
+            header={<HomeHeader invoice={invoice} isMobile={isMobile} />}
         >
             <Head title="Home" />
 
-            {invoices.length === 0 ? (
+            {invoice.length === 0 ? (
                 <NoInvoices isMobile={isMobile} />
             ) : (
-                <Invoices invoices={invoices.data} key={invoices.invoice_id} />
+                <Invoices invoices={invoice.data} key={invoice.invoice_id} />
             )}
 
             <Paginator
-                currentPage={invoices.current_page}
-                lastPage={invoices.last_page}
-                prevPageUrl={invoices.prev_page_url}
-                nextPageUrl={invoices.next_page_url}
+                currentPage={invoice.current_page}
+                lastPage={invoice.last_page}
+                prevPageUrl={invoice.prev_page_url}
+                nextPageUrl={invoice.next_page_url}
             />
         </AuthenticatedLayout>
     );

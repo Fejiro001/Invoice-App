@@ -13,8 +13,8 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Invoice/Home', [
-            'invoices' => Invoice::paginate(8)
+        return Inertia::render('Invoice/Index', [
+            'invoice' => Invoice::paginate(8)
         ]);
     }
 
