@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InvoiceItem;
 use Inertia\Inertia;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
@@ -13,8 +14,10 @@ class InvoiceController extends Controller
      */
     public function index()
     {
+        $invoices = Invoice::paginate(8);
+
         return Inertia::render('Invoice/Index', [
-            'invoice' => Invoice::paginate(8)
+            'invoice' => $invoices
         ]);
     }
 
@@ -39,7 +42,15 @@ class InvoiceController extends Controller
      */
     public function show(Invoice $invoice)
     {
-        return Inertia::render('Invoice/Show', compact('invoice'));
+        $invoice->sender_address = json_decode($invoice->sender_address);
+        $invoice->client_address = json_decode($invoice->client_address);
+
+        // Load related invoice items
+        $invoice->load('items');
+
+        return Inertia::render('Invoice/Show', [
+            'invoice' => $invoice
+        ]);
     }
 
     /**

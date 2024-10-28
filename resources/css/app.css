@@ -29,7 +29,7 @@
         @apply rounded-3xl bg-color-01 px-10 py-2 text-center text-[1.2rem] font-bold text-white hover:bg-transparent hover:text-color-01 hover:ring-2 hover:ring-color-01;
     }
     .invoice-card {
-        @apply mx-6 grid grid-cols-2 content-between rounded-lg bg-white p-6 text-color-08 max-[375px]:mx-0 md:mx-0 md:grid-cols-5 md:items-center md:py-[1.1rem] dark:bg-color-03 dark:text-white;
+        @apply grid grid-cols-2 content-between rounded-lg bg-white p-6 text-color-08 md:grid-cols-5 md:items-center md:py-[1.1rem] dark:bg-color-03 dark:text-white hover:cursor-pointer hover:ring-1 hover:ring-color-01 hover:drop-shadow-md;
     }
     .main-nav {
         @apply fixed top-0 z-50 w-full bg-navbar-bg lg:left-0 lg:top-0 lg:h-full lg:w-fit lg:rounded-tr-[1.7rem] dark:bg-color-03;
@@ -39,5 +39,11 @@
     }
     .inactive-page {
         @apply cursor-not-allowed rounded-md border-2 border-color-11 px-3 py-1 text-color-08 opacity-50 dark:text-white w-fit min-[375px]:w-24 text-center;
+    }
+    .invoice-h3{
+        @apply text-color-07 dark:text-color-05;
+    }
+    .invoice-h3-sibling{
+        @apply text-color-08 dark:text-white text-xl-variant;
     }
 }

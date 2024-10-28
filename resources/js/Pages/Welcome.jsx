@@ -27,7 +27,7 @@ export default function Welcome({ auth }) {
                             {auth.user ? (
                                 <>
                                     <Link
-                                        href={route('home')}
+                                        href={route('index')}
                                         className="links"
                                     >
                                         Home

@@ -69,11 +69,11 @@ class Invoice extends Model
      */
     public function items()
     {
-        return $this->hasMany(InvoiceItem::class);
+        return $this->hasMany(InvoiceItem::class, 'invoice_id');
     }
 
     /**
-     * Update the total amount of the invoice by summing up the total amounts of all associated items and saving the updated total.
+     * Update the total amount due of the invoice by summing up the total of all associated items and saving the updated total.
      */
     public function updateTotal()
     {

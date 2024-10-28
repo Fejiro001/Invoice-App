@@ -32,6 +32,7 @@ export default {
                 'color-11': '#F8F8FB',
                 'color-12': '#141625',
                 'navbar-bg': '#373B53',
+                status: '#858BB2',
                 paid: '#33D69F',
                 pending: '#FF8F00',
                 draft: '#373B53',
@@ -44,7 +45,7 @@ export default {
                     '0.813rem', //13px
                     {
                         lineHeight: '1.125rem', //18px
-                        letterSpacing: '-0.1px',
+                        letterSpacing: '0.1px',
                         fontWeight: '500',
                     },
                 ],
@@ -52,7 +53,7 @@ export default {
                     '0.813rem', //13px
                     {
                         lineHeight: '0.938rem', //15px
-                        letterSpacing: '-0.1px',
+                        letterSpacing: '0.1px',
                         fontWeight: '500',
                     },
                 ],
@@ -60,7 +61,7 @@ export default {
                     '0.938rem', //15px
                     {
                         lineHeight: '1.5rem', //24px
-                        letterSpacing: '-0.25px',
+                        letterSpacing: '0.25px',
                         fontWeight: '700',
                     },
                 ],
@@ -68,7 +69,15 @@ export default {
                     '0.938rem', //15px
                     {
                         lineHeight: '0.938rem', //15px
-                        letterSpacing: '-0.25px',
+                        letterSpacing: '0.25px',
+                        fontWeight: '700',
+                    },
+                ],
+                'xl-variant': [
+                    '0.938rem', //15px
+                    {
+                        lineHeight: '1.25rem', //20px
+                        letterSpacing: '0.5px',
                         fontWeight: '700',
                     },
                 ],

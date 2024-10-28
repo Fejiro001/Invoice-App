@@ -26,13 +26,13 @@ class InvoiceFactory extends Factory
             'sender_address' => json_encode([
                 'street' => $this->faker->streetAddress(),
                 'city' => $this->faker->city(),
-                'postCode' => $this->faker->postcode(),
+                'post_code' => $this->faker->postcode(),
                 'country' => $this->faker->country(),
             ]),
             'client_address' => json_encode([
                 'street' => $this->faker->streetAddress(),
                 'city' => $this->faker->city(),
-                'postCode' => $this->faker->postcode(),
+                'post_code' => $this->faker->postcode(),
                 'country' => $this->faker->country(),
             ]),
         ];
