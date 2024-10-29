@@ -94,7 +94,15 @@ export default function Show({ invoice }) {
                     </div>
 
                     <div>
-                        <ol className="space-y-6 rounded-t-lg bg-[#F9FAFE] p-6 dark:bg-color-04">
+                        <ol className="space-y-6 rounded-t-lg bg-[#F9FAFE] p-6 sm:space-y-8 sm:p-8 dark:bg-color-04">
+                            {/* Header row for tablet and larger screens */}
+                            <li className="hidden text-base text-color-07 md:grid md:grid-cols-4 dark:text-color-05">
+                                <span>Item Name</span>
+                                <span className="text-right">QTY.</span>
+                                <span className="text-right">Price</span>
+                                <span className="text-right">Total</span>
+                            </li>
+
                             {invoice.items.map((item) => {
                                 return <SingleItem key={item.id} item={item} />;
                             })}
