@@ -94,7 +94,7 @@ export default function Show({ invoice }) {
                     </div>
 
                     <div>
-                        <ol className="space-y-6 rounded-t-lg bg-[#F9FAFE] p-6 md:hidden dark:bg-color-04">
+                        <ol className="space-y-6 rounded-t-lg bg-[#F9FAFE] p-6 dark:bg-color-04">
                             {invoice.items.map((item) => {
                                 return <SingleItem key={item.id} item={item} />;
                             })}

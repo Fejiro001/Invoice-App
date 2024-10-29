@@ -3,6 +3,7 @@ import './bootstrap';
 
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from './Components/ThemeContext';
 
@@ -20,9 +21,11 @@ createInertiaApp({
         const root = createRoot(el);
 
         root.render(
-            <ThemeProvider>
-                <App {...props} />
-            </ThemeProvider>,
+            <React.StrictMode>
+                <ThemeProvider>
+                    <App {...props} />
+                </ThemeProvider>
+            </React.StrictMode>,
         );
     },
     progress: {
