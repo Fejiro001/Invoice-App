@@ -27,9 +27,10 @@ class InvoiceItem extends Model
     }
 
     /**
-     * Perform actions when the 'InvoiceItem' model is booted.
-     * Updates the total of the associated invoice when an item is saved or deleted.
+     * Register model event hooks for the 'InvoiceItem' model.
+     * Updates the total of the associated invoice whenever an item is saved or deleted.
      */
+
     protected static function booted()
     {
         static::saved(function ($item) {

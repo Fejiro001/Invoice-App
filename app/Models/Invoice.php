@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -73,11 +74,29 @@ class Invoice extends Model
     }
 
     /**
-     * Update the total amount due of the invoice by summing up the total of all associated items and saving the updated total.
+     * Update an invoice total amount due by summing up the total of all associated items and saving the updated total.
      */
     public function updateTotal()
     {
         $this->total = $this->items()->sum('total');
         $this->save();
+    }
+
+    /**
+     * Filter the query results by the given status.
+     *
+     * If the provided status is an array and not empty, filters the query to include only records with the specified status.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query The query builder instance.
+     * @param mixed $status The status or array of statuses to filter by.
+     * @return \Illuminate\Database\Eloquent\Builder The modified query builder instance.
+     */
+    public function scopeStatusFilter($query, $status)
+    {
+        if (is_array($status) && !empty($status)) {
+            $query->whereIn('status', $status);
+        }
+
+        return $query;
     }
 }

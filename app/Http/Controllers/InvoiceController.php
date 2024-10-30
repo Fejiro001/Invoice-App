@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\InvoiceItem;
 use Inertia\Inertia;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
@@ -10,14 +9,22 @@ use Illuminate\Http\Request;
 class InvoiceController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display all invoices from the database.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $invoices = Invoice::paginate(8);
+        $statusQuery = Invoice::query();
+        $status = $request->input('status');
+
+        $totalInvoices = $statusQuery->count();
+
+        $invoices = $statusQuery
+            ->statusFilter($status)
+            ->paginate(8);
 
         return Inertia::render('Invoice/Index', [
-            'invoice' => $invoices
+            'invoice' => $invoices,
+            'totalInvoice' => $totalInvoices
         ]);
     }
 

@@ -11,7 +11,7 @@ export default function Show({ invoice }) {
             header={
                 <Link
                     href={route('home')}
-                    className="flex items-baseline gap-6"
+                    className="flex items-baseline gap-6 *:hover:text-color-06"
                 >
                     <img src="/images/icon-arrow-left.svg" />
                     <span className="dark:text-white">Go Back</span>
@@ -26,13 +26,13 @@ export default function Show({ invoice }) {
                     </div>
 
                     <div className="fixed bottom-0 left-0 right-0 flex justify-between gap-2 p-5 *:rounded-3xl *:py-4 *:text-lg-variant max-md:bg-white md:static max-md:dark:bg-color-03">
-                        <button className="bg-color-04 px-6 text-color-05">
+                        <button className="bg-color-04 px-6 text-color-05 hover:bg-white hover:text-color-07">
                             Edit
                         </button>
-                        <button className="bg-color-09 px-6 text-white">
+                        <button className="bg-color-09 px-6 text-white hover:bg-color-10">
                             Delete
                         </button>
-                        <button className="bg-color-01 px-7 text-white">
+                        <button className="bg-color-01 px-7 text-white hover:bg-color-02">
                             Mark as Paid
                         </button>
                     </div>

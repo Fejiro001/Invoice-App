@@ -4,6 +4,12 @@ import { createContext, useContext, useState } from 'react';
 
 const DropDownContext = createContext();
 
+/**
+ * Dropdown component to handle toggling visibility of its children.
+ *
+ * @param {Object} children - The content to be displayed within the dropdown.
+ * @returns {JSX.Element} Dropdown component with toggle functionality.
+ */
 const Dropdown = ({ children }) => {
     const [open, setOpen] = useState(false);
 
@@ -18,27 +24,50 @@ const Dropdown = ({ children }) => {
     );
 };
 
+/**
+ * Functional component for rendering a trigger element in a dropdown menu.
+ *
+ * @param {Object} props - The properties passed to the component.
+ * @param {ReactNode} props.children - The child elements to be rendered inside the trigger.
+ * @returns {JSX.Element} A JSX element representing the trigger with click functionality to toggle the dropdown.
+ */
 const Trigger = ({ children }) => {
     const { open, setOpen, toggleOpen } = useContext(DropDownContext);
 
     return (
         <>
-            <div onClick={toggleOpen}>{children}</div>
+            <div className="flex items-center gap-3" onClick={toggleOpen}>
+                {children}
+                <img
+                    className={`w-3 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+                    src="/images/icon-arrow-down.svg"
+                    alt="dropdown arrow"
+                />
+            </div>
 
             {open && (
                 <div
                     className="fixed inset-0 z-40"
-                    onClick={() => setOpen(false)}
+                    onClick={() => setOpen(false)} // Close dropdown when clicking outside
                 ></div>
             )}
         </>
     );
 };
 
+/**
+ * Renders a dropdown content component with specified alignment, width, and content classes.
+ *
+ * @param {string} align - The alignment of the dropdown content ('left' or 'right').
+ * @param {string} width - The width of the dropdown content (default is '48').
+ * @param {string} contentClasses - Additional classes for the content container.
+ * @param {ReactNode} children - The content to be displayed within the dropdown.
+ * @returns {JSX.Element} A dropdown content component.
+ */
 const Content = ({
     align = 'right',
     width = '48',
-    contentClasses = 'py-1 bg-white dark:bg-gray-700',
+    contentClasses = 'py-6 space-y-3 bg-white dark:bg-color-04',
     children,
 }) => {
     const { open, setOpen } = useContext(DropDownContext);
@@ -70,7 +99,7 @@ const Content = ({
             >
                 <div
                     className={`absolute z-50 mt-2 rounded-md shadow-lg ${alignmentClasses} ${widthClasses}`}
-                    onClick={() => setOpen(false)}
+                    onClick={() => setOpen(true)}
                 >
                     <div
                         className={
@@ -86,6 +115,14 @@ const Content = ({
     );
 };
 
+/**
+ * DropdownLink component for rendering a link inside a dropdown menu.
+ *
+ * @param {string} className - Additional classes to be applied to the link.
+ * @param {ReactNode} children - The content to be displayed inside the link.
+ * @param {object} props - Additional props to be spread on the link element.
+ * @returns {JSX.Element} A link component with specified styles and behavior.
+ */
 const DropdownLink = ({ className = '', children, ...props }) => {
     return (
         <Link

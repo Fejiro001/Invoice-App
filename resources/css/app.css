@@ -21,6 +21,11 @@
         url('/fonts/league-spartan-v11-latin-700.ttf') format('truetype');
 }
 
+:root {
+    scrollbar-gutter: stable;
+    scrollbar-color: #7c5dfa #252945;
+}
+
 @layer components {
     .links {
         @apply rounded-md px-3 py-2 text-lg-variant text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-color-01 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white;
@@ -29,21 +34,31 @@
         @apply rounded-3xl bg-color-01 px-10 py-2 text-center text-[1.2rem] font-bold text-white hover:bg-transparent hover:text-color-01 hover:ring-2 hover:ring-color-01;
     }
     .invoice-card {
-        @apply grid grid-cols-2 content-between rounded-lg bg-white p-6 text-color-08 md:grid-cols-5 md:items-center md:py-[1.1rem] dark:bg-color-03 dark:text-white hover:cursor-pointer hover:ring-1 hover:ring-color-01 hover:drop-shadow-md;
+        @apply grid grid-cols-2 content-between rounded-lg bg-white p-6 text-color-08 hover:cursor-pointer hover:ring-1 hover:ring-color-01 hover:drop-shadow-md md:grid-cols-5 md:items-center md:py-[1.1rem] dark:bg-color-03 dark:text-white;
     }
     .main-nav {
         @apply fixed top-0 z-50 w-full bg-navbar-bg lg:left-0 lg:top-0 lg:h-full lg:w-fit lg:rounded-tr-[1.7rem] dark:bg-color-03;
     }
     .active-page {
-        @apply rounded-md border-2 border-color-01 px-3 py-1 text-color-08 dark:text-white text-center text-wrap w-fit min-[375px]:w-24 hover:bg-color-01 hover:text-white;
+        @apply w-fit text-wrap rounded-md border-2 border-color-01 px-3 py-1 text-center text-color-08 hover:bg-color-01 hover:text-white min-[375px]:w-24 dark:text-white;
     }
     .inactive-page {
-        @apply cursor-not-allowed rounded-md border-2 border-color-11 px-3 py-1 text-color-08 opacity-50 dark:text-white w-fit min-[375px]:w-24 text-center;
+        @apply w-fit cursor-not-allowed rounded-md border-2 border-color-11 px-3 py-1 text-center text-color-08 opacity-50 min-[375px]:w-24 dark:text-white;
     }
-    .invoice-h3{
+    .invoice-h3 {
         @apply text-color-07 dark:text-color-05;
     }
-    .invoice-h3-sibling{
-        @apply text-color-08 dark:text-white text-xl-variant;
+    .invoice-h3-sibling {
+        @apply text-xl-variant text-color-08 dark:text-white;
+    }
+    .dropdown-link {
+        @apply block w-full cursor-pointer px-6 text-start text-sm leading-5 text-gray-700 transition duration-150 ease-in-out *:cursor-pointer dark:text-white;
+    }
+    .dropdown-label {
+        @apply block *:hover:border-color-01;
+    }
+    .rotate-180 {
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
     }
 }
