@@ -26,6 +26,11 @@ export default function HomeHeader({ isMobile, totalInvoice }) {
         );
     };
 
+    const handleCreateInvoice = () => {
+        const url = route('invoice.create');
+        router.get(url);
+    };
+
     return (
         <div className="flex justify-between text-color-08 dark:text-white">
             <div className="flex flex-col justify-between md:gap-2">
@@ -99,7 +104,10 @@ export default function HomeHeader({ isMobile, totalInvoice }) {
                     </Dropdown.Content>
                 </Dropdown>
 
-                <button className="group peer flex items-center gap-2 rounded-full bg-color-01 p-2 hover:bg-color-02 md:gap-5">
+                <button
+                    onClick={handleCreateInvoice}
+                    className="group peer flex items-center gap-2 rounded-full bg-color-01 p-2 hover:bg-color-02 md:gap-5"
+                >
                     <span className="rounded-full bg-white p-2">
                         <svg
                             className="fill-[#7C5DFA] group-hover:fill-color-02"
