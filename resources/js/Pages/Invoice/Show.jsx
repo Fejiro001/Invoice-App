@@ -1,23 +1,15 @@
 import FormatCurrency from '@/Components/FormatCurrency';
 import FormatDate from '@/Components/FormatDate';
+import GoBackHeader from '@/Components/GoBackHeader';
 import InvoiceStatus from '@/Components/InvoiceStatus';
 import SingleItem from '@/Components/SingleItem';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Link } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 
 export default function Show({ invoice }) {
     return (
-        <AuthenticatedLayout
-            header={
-                <Link
-                    href={route('home')}
-                    className="flex items-baseline gap-6 *:hover:text-color-06"
-                >
-                    <img src="/images/icon-arrow-left.svg" />
-                    <span className="dark:text-white">Go Back</span>
-                </Link>
-            }
-        >
+        <AuthenticatedLayout header={<GoBackHeader />}>
+            <Head title="Invoice" />
             <section className="space-y-4 md:space-y-6">
                 <div className="md:flex md:justify-between md:rounded-lg md:bg-white md:px-2 md:dark:bg-color-03">
                     <div className="flex items-center justify-between gap-5 rounded-lg p-6 max-md:bg-white max-md:dark:bg-color-03">

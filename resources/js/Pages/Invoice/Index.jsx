@@ -1,7 +1,7 @@
 import HomeHeader from '@/Components/HomeHeader';
-import NoInvoices from '@/Components/NoInvoices';
 import Paginator from '@/Components/Paginator';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import NoInvoices from '@/Pages/Invoice/NoInvoices';
 import { Head } from '@inertiajs/react';
 import { useMediaQuery } from 'react-responsive';
 import Invoices from './Invoices';

@@ -9,9 +9,9 @@ export default function SingleItem({ item }) {
             >
                 {/* Item Name */}
                 <div className="space-y-2">
-                    <h4 className="capitalize text-color-08 dark:text-white">
+                    <p className="capitalize text-color-08 dark:text-white">
                         {item.name}
-                    </h4>
+                    </p>
                     <p className="text-color-07 md:hidden dark:text-color-06">
                         {item.quantity} x{' '}
                         {<FormatCurrency money={item.price} />}

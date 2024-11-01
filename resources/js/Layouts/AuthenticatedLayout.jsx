@@ -9,7 +9,7 @@ export default function AuthenticatedLayout({ header, children }) {
             <div className="flex min-h-screen w-full max-w-[48.5rem] flex-col px-6 md:px-12 lg:px-6">
                 {header && (
                     <header>
-                        <div className="mx-auto w-full pb-8 pt-[6.7rem] md:px-0 md:pb-14 md:pt-36 lg:pt-20">
+                        <div className="mx-auto w-full pb-8 pt-[6.7rem] md:px-0 md:pt-36 lg:pt-20">
                             {header}
                         </div>
                     </header>
