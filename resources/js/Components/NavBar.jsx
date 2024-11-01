@@ -7,11 +7,11 @@ export default function NavBar() {
         <nav className="main-nav">
             <div className="max-w-7xl lg:h-full lg:w-[6.5rem]">
                 <div className="flex h-fit justify-between md:h-20 lg:block">
-                    <div className="flex items-center bg-custom-bg bg-contain bg-no-repeat p-4 md:p-5 lg:p-8">
-                        <Link href="/">
+                    <Link href="/">
+                        <div className="flex items-center bg-custom-bg bg-contain bg-no-repeat p-4 md:p-5 lg:p-8">
                             <ApplicationLogo className="block h-10 w-auto fill-current text-white" />
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
 
                     <div className="flex items-center justify-evenly gap-6 pe-6 lg:absolute lg:bottom-0 lg:w-full lg:flex-col lg:pb-4 lg:pe-0">
                         <DarkModeToggle />

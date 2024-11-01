@@ -90,6 +90,14 @@ export default {
                     },
                 ],
                 '2xl': [
+                    '1.5rem', //24px
+                    {
+                        lineHeight: '2rem', //32px
+                        letterSpacing: '-0.5px',
+                        fontWeight: '700',
+                    },
+                ],
+                '3xl': [
                     '2.25rem', //36px
                     {
                         lineHeight: '2.063rem',

@@ -56,7 +56,7 @@ export default function Welcome({ auth }) {
                         <h1 className="text-5xl font-bold">
                             The Best Invoice App for You
                         </h1>
-                        <p className="text-3xl font-medium">
+                        <p className="text-4xl font-medium">
                             Manage your invoices effortlessly with our
                             user-friendly platform.
                         </p>

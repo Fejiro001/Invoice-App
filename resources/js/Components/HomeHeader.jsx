@@ -34,7 +34,7 @@ export default function HomeHeader({ isMobile, totalInvoice }) {
     return (
         <div className="flex justify-between text-color-08 dark:text-white">
             <div className="flex flex-col justify-between md:gap-2">
-                <h1 className="text-xl md:text-2xl">Invoices</h1>
+                <h1 className="text-xl md:text-3xl">Invoices</h1>
                 <p className="text-base-variant text-color-06 dark:text-color-05">
                     {totalInvoice === 0
                         ? 'No Invoices'

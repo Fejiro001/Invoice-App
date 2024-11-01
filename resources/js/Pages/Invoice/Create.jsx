@@ -11,11 +11,15 @@ export default function Create() {
         <AuthenticatedLayout header={<GoBackHeader />}>
             <Head title="Create Invoice" />
 
-            <h1 className="text-color-08 dark:text-white">New Invoice</h1>
-            <form>
+            <h1 className="text-2xl text-color-08 dark:text-white">
+                New Invoice
+            </h1>
+            <form className="space-y-10 py-12">
                 {/* Bill From */}
-                <fieldset>
-                    <legend className="text-color-01">Bill From</legend>
+                <fieldset className="space-y-6">
+                    <legend className="text-lg-variant text-color-01">
+                        Bill From
+                    </legend>
                     {/* Street Address */}
                     <div>
                         <div className="flex justify-between">
@@ -25,7 +29,7 @@ export default function Create() {
                         <TextInput required />
                     </div>
 
-                    <div>
+                    <div className="flex flex-wrap justify-between gap-6 *:grow">
                         {/* City */}
                         <div>
                             <div className="flex justify-between">
@@ -54,8 +58,10 @@ export default function Create() {
                 </fieldset>
 
                 {/* Bill To */}
-                <fieldset>
-                    <legend className="text-color-01">Bill To</legend>
+                <fieldset className="space-y-6">
+                    <legend className="text-lg-variant text-color-01">
+                        Bill To
+                    </legend>
                     {/* Client's Name */}
                     <div>
                         <div className="flex justify-between">
@@ -81,7 +87,7 @@ export default function Create() {
                         <TextInput required />
                     </div>
 
-                    <div>
+                    <div className="flex flex-wrap justify-between gap-6 *:grow">
                         {/* City */}
                         <div>
                             <div className="flex justify-between">
@@ -110,7 +116,7 @@ export default function Create() {
                 </fieldset>
 
                 {/* Invoice Info */}
-                <div>
+                <div className="flex flex-wrap justify-between gap-6 *:grow">
                     {/* Invoice Date */}
                     <div>
                         <div className="flex justify-between">
@@ -130,6 +136,7 @@ export default function Create() {
                             {/* <InputError message={"can't be empty"} /> */}
                         </div>
                         <select
+                            className="w-full rounded-md border-color-05 shadow-sm focus:border-color-02 focus:ring-color-02 dark:border-color-04 dark:bg-color-03 dark:text-white dark:focus:border-color-04 dark:focus:ring-color-04"
                             name="payment_terms"
                             id="payment_terms"
                             defaultValue={'Net 30 days'}

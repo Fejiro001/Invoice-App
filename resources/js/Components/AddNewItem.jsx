@@ -4,7 +4,7 @@ import TextInput from './TextInput';
 
 export default function AddNewItem() {
     return (
-        <li>
+        <li className="space-y-6 md:flex md:gap-4 md:space-y-0">
             {/* Item Name */}
             <div>
                 <div className="flex justify-between md:hidden">
@@ -13,29 +13,34 @@ export default function AddNewItem() {
                 </div>
                 <TextInput required />
             </div>
-            {/* Item Quantity */}
-            <div>
-                <div className="flex justify-between md:hidden">
-                    <InputLabel value={'Qty.'} />
-                    <InputError message={"can't be empty"} />
+
+            <div className="flex items-end justify-between gap-4">
+                {/* Item Quantity */}
+                <div>
+                    <div className="flex justify-between md:hidden">
+                        <InputLabel value={'Qty.'} />
+                        <InputError message={"can't be empty"} />
+                    </div>
+                    <TextInput required />
                 </div>
-                <TextInput required />
-            </div>
-            {/* Item Price */}
-            <div>
-                <div className="flex justify-between md:hidden">
-                    <InputLabel value={'Price'} />
-                    <InputError message={"can't be empty"} />
+                {/* Item Price */}
+                <div>
+                    <div className="flex justify-between md:hidden">
+                        <InputLabel value={'Price'} />
+                        <InputError message={"can't be empty"} />
+                    </div>
+                    <TextInput required />
                 </div>
-                <TextInput required />
-            </div>
-            {/* Item Total */}
-            <div>
-                <div className="flex justify-between md:hidden">
-                    <InputLabel value={'Total'} />
-                    <InputError message={"can't be empty"} />
+                {/* Item Total */}
+                <div>
+                    <div className="flex justify-between md:hidden">
+                        <InputLabel value={'Total'} />
+                    </div>
+                    <p className="py-[9px]">156.00</p>
                 </div>
-                <TextInput required />
+                <div className="pb-4">
+                    <img className="w-6" src="/images/icon-delete.svg" />
+                </div>
             </div>
         </li>
     );
