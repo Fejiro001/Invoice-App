@@ -24,7 +24,7 @@ export default function Edit({ mustVerifyEmail, status }) {
                             href={route('logout')}
                             method="post"
                             as="button"
-                            className="links bg-color-01"
+                            className="links bg-color-01 text-white dark:text-color-12"
                         >
                             Log Out
                         </Link>

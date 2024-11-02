@@ -1,14 +1,23 @@
 import FormatCurrency from '@/Components/FormatCurrency';
 import FormatDate from '@/Components/FormatDate';
-import GoBackHeader from '@/Components/GoBackHeader';
 import InvoiceStatus from '@/Components/InvoiceStatus';
 import SingleItem from '@/Components/SingleItem';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 
 export default function Show({ invoice }) {
     return (
-        <AuthenticatedLayout header={<GoBackHeader />}>
+        <AuthenticatedLayout
+            header={
+                <Link
+                    href={route('home')}
+                    className="flex items-baseline gap-6 *:hover:text-color-06"
+                >
+                    <img src="/images/icon-arrow-left.svg" />
+                    <span className="dark:text-white">Go Back</span>
+                </Link>
+            }
+        >
             <Head title="Invoice" />
             <section className="space-y-4 md:space-y-6">
                 <div className="md:flex md:justify-between md:rounded-lg md:bg-white md:px-2 md:dark:bg-color-03">
@@ -86,7 +95,7 @@ export default function Show({ invoice }) {
                     </div>
 
                     <div>
-                        <ol className="space-y-6 rounded-t-lg bg-[#F9FAFE] p-6 sm:space-y-8 sm:p-8 dark:bg-color-04">
+                        <ol className="bg-add-bg space-y-6 rounded-t-lg p-6 sm:space-y-8 sm:p-8 dark:bg-color-04">
                             {/* Header row for tablet and larger screens */}
                             <li className="hidden text-base text-color-07 md:grid md:grid-cols-4 dark:text-color-05">
                                 <span>Item Name</span>

@@ -1,14 +1,24 @@
 import AddNewItem from '@/Components/AddNewItem';
-import GoBackHeader from '@/Components/GoBackHeader';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 
 export default function Create() {
     return (
-        <AuthenticatedLayout header={<GoBackHeader />}>
+        <AuthenticatedLayout
+            className="bg-white"
+            header={
+                <Link
+                    href={route('home')}
+                    className="flex items-baseline gap-6 *:hover:text-color-06"
+                >
+                    <img src="/images/icon-arrow-left.svg" />
+                    <span className="dark:text-white">Go Back</span>
+                </Link>
+            }
+        >
             <Head title="Create Invoice" />
 
             <h1 className="text-2xl text-color-08 dark:text-white">
@@ -162,16 +172,18 @@ export default function Create() {
                 <div>
                     <h2 className="text-[#777F98]">Item List</h2>
                     <ol>
-                        <li className="hidden text-base text-color-07 md:grid md:grid-cols-4 dark:text-color-05">
+                        <li className="hidden text-base text-color-07 md:grid md:grid-cols-5 dark:text-color-05">
                             <span>Item Name</span>
                             <span className="text-right">Qty.</span>
                             <span className="text-right">Price</span>
                             <span className="text-right">Total</span>
                         </li>
 
-                        <div>
+                        <div className="flex flex-col gap-12">
                             <AddNewItem />
-                            <button>+ Add New Item</button>
+                            <button className="bg-add-bg rounded-full py-4 text-color-07 dark:bg-color-04 dark:text-color-06">
+                                + Add New Item
+                            </button>
                         </div>
                     </ol>
                 </div>

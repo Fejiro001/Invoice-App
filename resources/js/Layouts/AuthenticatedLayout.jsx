@@ -1,10 +1,19 @@
 import NavBar from '@/Components/NavBar';
 
-export default function AuthenticatedLayout({ header, children }) {
+export default function AuthenticatedLayout({
+    header,
+    children,
+    className = '',
+}) {
     // const user = usePage().props.auth.user;
 
     return (
-        <div className="flex min-h-screen flex-col items-center bg-color-11 dark:bg-color-12">
+        <div
+            className={
+                className +
+                ` flex min-h-screen flex-col items-center bg-color-11 dark:bg-color-12`
+            }
+        >
             <NavBar />
             <div className="flex min-h-screen w-full max-w-[48.5rem] flex-col px-6 md:px-12 lg:px-6">
                 {header && (

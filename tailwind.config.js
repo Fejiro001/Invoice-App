@@ -32,6 +32,7 @@ export default {
                 'color-11': '#F8F8FB',
                 'color-12': '#141625',
                 'navbar-bg': '#373B53',
+                'add-bg': '#F9FAFE',
                 status: '#858BB2',
                 paid: '#33D69F',
                 pending: '#FF8F00',
