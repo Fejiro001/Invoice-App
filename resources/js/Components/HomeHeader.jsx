@@ -3,7 +3,11 @@ import { useState } from 'react';
 import Checkbox from './Checkbox';
 import Dropdown from './Dropdown';
 
-export default function HomeHeader({ isMobile, totalInvoice }) {
+export default function HomeHeader({
+    isMobile,
+    totalInvoice,
+    setShowCreateInvoice,
+}) {
     const [selectedStatuses, setSelectedStatuses] = useState([]);
 
     /**
@@ -24,11 +28,6 @@ export default function HomeHeader({ isMobile, totalInvoice }) {
             { status: updatedStatuses },
             { preserveState: true },
         );
-    };
-
-    const handleCreateInvoice = () => {
-        const url = route('invoice.create');
-        router.get(url);
     };
 
     return (
@@ -105,7 +104,7 @@ export default function HomeHeader({ isMobile, totalInvoice }) {
                 </Dropdown>
 
                 <button
-                    onClick={handleCreateInvoice}
+                    onClick={() => setShowCreateInvoice(true)}
                     className="group peer flex items-center gap-2 rounded-full bg-color-01 p-2 hover:bg-color-02 md:gap-5"
                 >
                     <span className="rounded-full bg-white p-2">
