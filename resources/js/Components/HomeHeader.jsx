@@ -31,7 +31,7 @@ export default function HomeHeader({
     };
 
     return (
-        <div className="flex justify-between text-color-08 dark:text-white">
+        <div className="flex justify-between px-6 text-color-08 md:px-12 lg:px-6 dark:text-white">
             <div className="flex flex-col justify-between md:gap-2">
                 <h1 className="text-xl md:text-3xl">Invoices</h1>
                 <p className="text-base-variant text-color-06 dark:text-color-05">

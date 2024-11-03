@@ -35,11 +35,12 @@ export default function AddNewItem() {
                         <InputLabel value={'Total'} />
                     </div>
                     <input
-                        className="w-full rounded-md border-none bg-white focus:border-color-02 focus:ring-color-02 dark:bg-color-12 dark:text-white dark:focus:border-color-04 dark:focus:ring-color-04"
+                        className="w-full rounded-md border-none bg-white px-0 focus:border-color-02 focus:ring-color-02 dark:bg-color-12 dark:text-white dark:focus:border-color-04 dark:focus:ring-color-04"
                         placeholder="156.00"
                         readOnly
                     />
                 </div>
+                {/* Trash Button */}
                 <button className="flex items-end py-4">
                     <svg
                         width="13"

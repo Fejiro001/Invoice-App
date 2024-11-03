@@ -95,7 +95,7 @@ export default function Show({ invoice }) {
                     </div>
 
                     <div>
-                        <ol className="bg-add-bg space-y-6 rounded-t-lg p-6 sm:space-y-8 sm:p-8 dark:bg-color-04">
+                        <ol className="space-y-6 rounded-t-lg bg-add-bg p-6 sm:space-y-8 sm:p-8 dark:bg-color-04">
                             {/* Header row for tablet and larger screens */}
                             <li className="hidden text-base text-color-07 md:grid md:grid-cols-4 dark:text-color-05">
                                 <span>Item Name</span>

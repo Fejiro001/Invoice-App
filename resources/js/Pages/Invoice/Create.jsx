@@ -1,10 +1,13 @@
 import AddNewItem from '@/Components/AddNewItem';
+import GoBackHeader from '@/Components/GoBackHeader';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, Link } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
+import { format } from 'date-fns';
 import { useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 export default function Create({ setShowCreateInvoice }) {
     useEffect(() => {
@@ -13,26 +16,23 @@ export default function Create({ setShowCreateInvoice }) {
             document.body.style.overflow = 'auto';
         };
     }, []);
+
+    const isMobile = useMediaQuery({ query: '(max-width:767px)' });
+
+    const formattedDate = format(new Date(), 'dd MMM yyyy');
+
     return (
         <AuthenticatedLayout
-            className="bg-white"
-            header={
-                <Link
-                    href={route('home')}
-                    className="flex items-baseline gap-6 *:hover:text-color-06 md:hidden"
-                >
-                    <img src="/images/icon-arrow-left.svg" />
-                    <span className="dark:text-white">Go Back</span>
-                </Link>
-            }
+            className="bg-white lg:ps-6"
+            header={isMobile ? <GoBackHeader /> : null}
         >
             <Head title="Create Invoice" />
 
-            <div className="px-6">
+            <div className="px-10 md:p-14">
                 <h1 className="text-2xl text-color-08 dark:text-white">
                     New Invoice
                 </h1>
-                <form className="mb-20 space-y-10 py-12">
+                <form className="space-y-10 py-12">
                     {/* Bill From */}
                     <fieldset className="space-y-6">
                         <legend className="text-lg-variant text-color-01">
@@ -47,7 +47,7 @@ export default function Create({ setShowCreateInvoice }) {
                             <TextInput required />
                         </div>
 
-                        <div className="flex flex-wrap justify-between gap-6 *:grow">
+                        <div className="flex flex-wrap justify-between gap-6 *:grow md:flex-nowrap">
                             {/* City */}
                             <div>
                                 <div className="flex justify-between">
@@ -105,7 +105,7 @@ export default function Create({ setShowCreateInvoice }) {
                             <TextInput required />
                         </div>
 
-                        <div className="flex flex-wrap justify-between gap-6 *:grow">
+                        <div className="flex flex-wrap justify-between gap-6 *:grow md:flex-nowrap">
                             {/* City */}
                             <div>
                                 <div className="flex justify-between">
@@ -136,23 +136,37 @@ export default function Create({ setShowCreateInvoice }) {
                     {/* Invoice Info */}
                     <div className="flex flex-wrap justify-between gap-6 *:grow">
                         {/* Invoice Date */}
-                        <div>
+                        <div className="">
                             <div className="flex justify-between">
                                 <InputLabel value={'Invoice Date'} />
-                                {/* <InputError message={"can't be empty"} /> */}
                             </div>
-                            <TextInput type={'date'} readOnly={true} />
+                            <div className="relative">
+                                <TextInput
+                                    value={formattedDate}
+                                    readOnly={true}
+                                />
+                                <svg
+                                    className="absolute right-3 top-3"
+                                    width="16"
+                                    height="16"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M14 2h-.667V.667A.667.667 0 0012.667 0H12a.667.667 0 00-.667.667V2H4.667V.667A.667.667 0 004 0h-.667a.667.667 0 00-.666.667V2H2C.897 2 0 2.897 0 4v10c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm.667 12c0 .367-.3.667-.667.667H2A.668.668 0 011.333 14V6.693h13.334V14z"
+                                        fill="#7E88C3"
+                                        fillRule="nonzero"
+                                        opacity=".5"
+                                    />
+                                </svg>
+                            </div>
                         </div>
 
                         {/* Payment Terms */}
-                        <div>
-                            <div className="flex justify-between">
-                                <InputLabel
-                                    htmlFor={'payment_terms'}
-                                    value={'Invoice Date'}
-                                />
-                                {/* <InputError message={"can't be empty"} /> */}
-                            </div>
+                        <div className="">
+                            <InputLabel
+                                htmlFor={'payment_terms'}
+                                value={'Payment Terms'}
+                            />
                             <select
                                 className="w-full rounded-md border-color-05 shadow-sm focus:border-color-02 focus:ring-color-02 dark:border-color-04 dark:bg-color-03 dark:text-white dark:focus:border-color-04 dark:focus:ring-color-04"
                                 name="payment_terms"
@@ -171,11 +185,8 @@ export default function Create({ setShowCreateInvoice }) {
                         </div>
 
                         {/* Project Description */}
-                        <div>
-                            <div className="flex justify-between">
-                                <InputLabel value={'Project Description'} />
-                                <InputError message={"can't be empty"} />
-                            </div>
+                        <div className="">
+                            <InputLabel value={'Project Description'} />
                             <TextInput required />
                         </div>
                     </div>
@@ -193,7 +204,7 @@ export default function Create({ setShowCreateInvoice }) {
 
                             <div className="flex flex-col gap-12">
                                 <AddNewItem />
-                                <button className="bg-add-bg rounded-full py-4 text-color-07 dark:bg-color-04 dark:text-color-06">
+                                <button className="rounded-full bg-add-bg py-4 text-color-07 dark:bg-color-04 dark:text-color-06">
                                     + Add New Item
                                 </button>
                             </div>
@@ -201,7 +212,7 @@ export default function Create({ setShowCreateInvoice }) {
                     </div>
                 </form>
             </div>
-            <div className="sticky bottom-0 left-0 flex justify-between gap-2 p-5 *:rounded-3xl *:px-6 *:py-4 *:text-lg-variant dark:bg-color-03">
+            <div className="sticky bottom-0 left-0 flex justify-between gap-2 p-5 *:rounded-3xl *:px-6 *:py-4 *:text-lg-variant md:bottom-20 md:rounded-tr-xl lg:bottom-0 dark:bg-color-03">
                 <button
                     className="bg-color-04 text-color-05 hover:bg-white hover:text-color-07"
                     onClick={() => setShowCreateInvoice(false)}

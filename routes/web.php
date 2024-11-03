@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/invoices/create', [InvoiceController::class, 'create'])->name('invoice.create');
+    // Route::get('/invoices/create', [InvoiceController::class, 'create'])->name('invoice.create');
     Route::post('/invoices', [InvoiceController::class, 'store'])->name('invoice.store');
     Route::get('/invoices/{invoice}/edit', [InvoiceController::class, 'edit'])->name('invoice.edit');
     Route::patch('/invoices/{invoice}', [InvoiceController::class, 'update'])->name('invoice.update');

@@ -23,7 +23,7 @@
 
 :root {
     scrollbar-gutter: stable;
-    scrollbar-color: #7c5dfa #252945;
+    scrollbar-color: #252945 #141625;
 }
 
 @layer components {

@@ -31,20 +31,6 @@ export default function Index({ invoice, totalInvoice }) {
                 <Invoices invoices={invoice.data} key={invoice.invoice_id} />
             )}
 
-            {showCreateInvoice && (
-                <div className="left-20 top-0 w-full md:fixed">
-                    <div
-                        className={`${isMobile ? 'h-full' : 'h-4/5 max-w-3xl'} relative w-full max-w-2xl shadow-lg`}
-                    >
-                        <div className="max-h-screen overflow-y-auto">
-                            <Create
-                                setShowCreateInvoice={setShowCreateInvoice}
-                            />
-                        </div>
-                    </div>
-                </div>
-            )}
-
             {invoice.data.length < 8 && invoice.current_page === 1 ? (
                 <></>
             ) : (
@@ -54,6 +40,20 @@ export default function Index({ invoice, totalInvoice }) {
                     prevPageUrl={invoice.prev_page_url}
                     nextPageUrl={invoice.next_page_url}
                 />
+            )}
+
+            {showCreateInvoice && (
+                <div className="fixed left-0 top-0 w-full bg-black/60 md:top-20 lg:left-20 lg:top-0">
+                    <div
+                        className={`relative w-full shadow-lg md:max-w-[40rem]`}
+                    >
+                        <div className="max-h-screen overflow-y-auto">
+                            <Create
+                                setShowCreateInvoice={setShowCreateInvoice}
+                            />
+                        </div>
+                    </div>
+                </div>
             )}
         </AuthenticatedLayout>
     );
