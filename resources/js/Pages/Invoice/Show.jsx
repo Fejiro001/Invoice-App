@@ -8,6 +8,7 @@ import { Head, Link } from '@inertiajs/react';
 export default function Show({ invoice }) {
     return (
         <AuthenticatedLayout
+            className="px-6 md:px-12 lg:px-6"
             header={
                 <Link
                     href={route('home')}
@@ -21,13 +22,15 @@ export default function Show({ invoice }) {
             <Head title="Invoice" />
             <section className="space-y-4 md:space-y-6">
                 <div className="md:flex md:justify-between md:rounded-lg md:bg-white md:px-2 md:dark:bg-color-03">
+                    {/* Status */}
                     <div className="flex items-center justify-between gap-5 rounded-lg p-6 max-md:bg-white max-md:dark:bg-color-03">
                         <p className="text-status dark:text-color-05">Status</p>
                         <InvoiceStatus invoice={invoice} />
                     </div>
 
+                    {/* Buttons */}
                     <div className="fixed bottom-0 left-0 right-0 flex justify-between gap-2 p-5 *:rounded-3xl *:py-4 *:text-lg-variant max-md:bg-white md:static max-md:dark:bg-color-03">
-                        <button className="bg-color-04 px-6 text-color-05 hover:bg-white hover:text-color-07">
+                        <button className="bg-add-bg px-6 text-color-07 hover:bg-color-05 hover:text-color-07 dark:bg-color-04 dark:text-color-05 dark:hover:bg-white">
                             Edit
                         </button>
                         <button className="bg-color-09 px-6 text-white hover:bg-color-10">
@@ -51,6 +54,7 @@ export default function Show({ invoice }) {
                             </h2>
                         </div>
 
+                        {/* Sender Address */}
                         <div className="text-left text-base text-color-07 md:text-right dark:text-color-05">
                             <p>{invoice.sender_address.street}</p>
                             <p>{invoice.sender_address.city}</p>
@@ -61,12 +65,15 @@ export default function Show({ invoice }) {
 
                     <div className="flex flex-wrap justify-between gap-8">
                         <div className="space-y-8 *:space-y-3">
+                            {/* Invoice Date */}
                             <div>
                                 <h3 className="invoice-h3">Invoice Date</h3>
                                 <p className="invoice-h3-sibling">
                                     <FormatDate date={invoice.created_at} />
                                 </p>
                             </div>
+
+                            {/* Payment Due */}
                             <div>
                                 <h3 className="invoice-h3">Payment Due</h3>
                                 <p className="invoice-h3-sibling">
@@ -74,6 +81,8 @@ export default function Show({ invoice }) {
                                 </p>
                             </div>
                         </div>
+
+                        {/* Client Info */}
                         <div className="space-y-3">
                             <h3 className="invoice-h3">Bill To</h3>
                             <p className="invoice-h3-sibling">
@@ -86,6 +95,8 @@ export default function Show({ invoice }) {
                                 <p>{invoice.client_address.country}</p>
                             </div>
                         </div>
+
+                        {/* Client Email */}
                         <div className="space-y-3">
                             <h3 className="invoice-h3">Sent To</h3>
                             <p className="invoice-h3-sibling">
@@ -95,6 +106,7 @@ export default function Show({ invoice }) {
                     </div>
 
                     <div>
+                        {/* Item List */}
                         <ol className="space-y-6 rounded-t-lg bg-add-bg p-6 sm:space-y-8 sm:p-8 dark:bg-color-04">
                             {/* Header row for tablet and larger screens */}
                             <li className="hidden text-base text-color-07 md:grid md:grid-cols-4 dark:text-color-05">
@@ -109,6 +121,7 @@ export default function Show({ invoice }) {
                             })}
                         </ol>
 
+                        {/* Amount Due */}
                         <div className="flex items-center justify-between rounded-b-lg bg-navbar-bg px-6 py-7 text-white dark:bg-color-08">
                             <p className="text-base">Amount Due</p>
                             <p className="text-xl">

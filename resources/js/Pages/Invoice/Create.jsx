@@ -94,7 +94,12 @@ export default function Create({ setShowCreateInvoice }) {
                                 <InputLabel value={"Client's Email"} />
                                 <InputError message={"can't be empty"} />
                             </div>
-                            <TextInput required type={'email'} />
+                            <TextInput
+                                className={'placeholder:text-white'}
+                                required
+                                type={'email'}
+                                placeholder={'e.g. email@example.com'}
+                            />
                         </div>
                         {/* Street Address */}
                         <div>
@@ -187,19 +192,25 @@ export default function Create({ setShowCreateInvoice }) {
                         {/* Project Description */}
                         <div className="">
                             <InputLabel value={'Project Description'} />
-                            <TextInput required />
+                            <TextInput
+                                className={'placeholder:text-white'}
+                                required
+                                placeholder={'e.g. Graphic Design Service'}
+                            />
                         </div>
                     </div>
 
                     {/* Item List */}
                     <div>
-                        <h2 className="text-[#777F98]">Item List</h2>
+                        <h2 className="mb-5 text-[#777F98] md:mb-3">
+                            Item List
+                        </h2>
                         <ol>
-                            <li className="hidden text-base text-color-07 md:grid md:grid-cols-5 dark:text-color-05">
+                            <li className="hidden text-base text-color-07 md:mb-2 md:grid md:grid-cols-6 dark:text-color-05">
                                 <span>Item Name</span>
-                                <span className="text-right">Qty.</span>
-                                <span className="text-right">Price</span>
-                                <span className="text-right">Total</span>
+                                <span className="text-left">Qty.</span>
+                                <span className="text-left">Price</span>
+                                <span className="text-left">Total</span>
                             </li>
 
                             <div className="flex flex-col gap-12">
@@ -212,17 +223,18 @@ export default function Create({ setShowCreateInvoice }) {
                     </div>
                 </form>
             </div>
-            <div className="sticky bottom-0 left-0 flex justify-between gap-2 p-5 *:rounded-3xl *:px-6 *:py-4 *:text-lg-variant md:bottom-20 md:rounded-tr-xl lg:bottom-0 dark:bg-color-03">
+
+            <div className="sticky bottom-0 left-0 flex justify-between gap-2 bg-white p-5 shadow-[0px_-30px_40px_20px_#edf2f7] *:rounded-3xl *:px-6 *:py-4 *:text-lg-variant md:bottom-20 md:rounded-tr-xl lg:bottom-0 dark:bg-color-03 dark:shadow-none">
                 <button
-                    className="bg-color-04 text-color-05 hover:bg-white hover:text-color-07"
+                    className="bg-add-bg text-color-07 hover:bg-white hover:text-color-07 dark:bg-color-04 dark:text-color-05"
                     onClick={() => setShowCreateInvoice(false)}
                 >
                     Discard
                 </button>
-                <button className="text-color-05 dark:bg-navbar-bg">
+                <button className="bg-navbar-bg text-color-06 dark:text-color-05">
                     Save as Draft
                 </button>
-                <button className="text-white dark:bg-color-01">
+                <button className="bg-color-01 text-white hover:bg-color-02">
                     Save & Send
                 </button>
             </div>

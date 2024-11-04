@@ -109,6 +109,7 @@ export default {
             },
             gridTemplateColumns: {
                 5: '6rem repeat(4, minmax(0, 1fr))',
+                6: '10rem 4rem 8rem 6rem minmax(0, 1fr)',
             },
         },
     },
