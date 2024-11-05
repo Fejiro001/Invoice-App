@@ -149,10 +149,7 @@ export default function Create({ setShowCreateInvoice }) {
 
                         {/* Payment Terms */}
                         <div>
-                            <InputLabel
-                                htmlFor={'payment_terms'}
-                                value={'Payment Terms'}
-                            />
+                            <InputLabel value={'Payment Terms'} />
                             <PaymentDropdown />
                         </div>
 
@@ -198,7 +195,7 @@ export default function Create({ setShowCreateInvoice }) {
                 >
                     Discard
                 </button>
-                <button className="bg-navbar-bg text-color-06 dark:text-color-05">
+                <button className="bg-navbar-bg text-color-06 hover:bg-color-12 dark:text-color-05">
                     Save as Draft
                 </button>
                 <button className="bg-color-01 text-white hover:bg-color-02">

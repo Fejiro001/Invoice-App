@@ -15,7 +15,7 @@ export default function Edit({ mustVerifyEmail, status }) {
     return (
         <AuthenticatedLayout
             header={
-                <div className="flex justify-between">
+                <div className="flex justify-between px-6 md:px-12 lg:px-6">
                     <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
                         Profile
                     </h2>
@@ -33,7 +33,7 @@ export default function Edit({ mustVerifyEmail, status }) {
             }
         >
             <Head title="Profile" />
-            <div className="py-12">
+            <div className="px-6 py-12 md:px-12 lg:px-6">
                 <div className="mx-auto max-w-7xl space-y-6">
                     <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 dark:bg-gray-800">
                         <UpdateProfileInformationForm

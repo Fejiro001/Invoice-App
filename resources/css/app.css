@@ -21,9 +21,10 @@
         url('/fonts/league-spartan-v11-latin-700.ttf') format('truetype');
 }
 
-:root {
-    scrollbar-gutter: stable;
-    scrollbar-color: #252945 #141625;
+@layer base {
+    html {
+        @apply scrollbar scrollbar-track-white dark:scrollbar-track-color-12 scrollbar-thumb-color-06 dark:scrollbar-thumb-color-04;
+    }
 }
 
 @layer components {
@@ -56,6 +57,12 @@
     }
     .dropdown-label {
         @apply block *:hover:border-color-01;
+    }
+    .dropdown-button {
+        @apply flex w-full items-center justify-between rounded-md border border-color-05 px-4 py-4 text-left text-lg-variant text-color-08 outline-none focus:outline-color-02 dark:border-color-04 dark:bg-color-03 dark:text-white dark:focus:outline-color-02;
+    }
+    .dropdown-content {
+        @apply absolute z-10 mt-2 w-full rounded-md bg-white p-4 text-lg-variant text-white shadow-xl dark:bg-color-03;
     }
     .rotate-180 {
         transform: rotate(180deg);

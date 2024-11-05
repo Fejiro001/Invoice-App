@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 
 const DatePicker = () => {
     const today = dayjs();
-    const [selectedDate, setSelectedDate] = useState(today);
     const [isOpen, setIsOpen] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(today);
     const [currentMonth, setCurrentMonth] = useState(today.month());
     const [currentYear, setCurrentYear] = useState(today.year());
     const calendarRef = useRef(null);
@@ -108,7 +108,7 @@ const DatePicker = () => {
                 type="button"
                 ref={buttonRef}
                 onClick={toggleDatePicker}
-                className="flex w-full items-center justify-between rounded-md bg-color-03 px-4 py-2 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-color-02"
+                className="dropdown-button"
                 aria-haspopup="listbox"
                 aria-expanded={isOpen}
                 aria-label="Select a date"
@@ -120,7 +120,7 @@ const DatePicker = () => {
             {/* Calendar Dropdown */}
             {isOpen && (
                 <div
-                    className="absolute z-10 mt-2 w-full rounded-md bg-color-03 p-4 text-white shadow-lg"
+                    className="dropdown-content"
                     role="dialog"
                     aria-modal="true"
                     aria-labelledby="calendar-heading"
@@ -137,11 +137,14 @@ const DatePicker = () => {
                         </button>
 
                         {/* Display Current Month and Year */}
-                        <span id="calendar-heading" className="font-semibold">
+                        <span
+                            id="calendar-heading"
+                            className="text-color-08 dark:text-white"
+                        >
                             {dayjs()
                                 .year(currentYear)
                                 .month(currentMonth)
-                                .format('MMMM YYYY')}
+                                .format('MMM YYYY')}
                         </span>
 
                         {/* Next Month Button */}
@@ -171,12 +174,12 @@ const DatePicker = () => {
                                         key={index}
                                         onClick={() => selectDate(day, date)}
                                         disabled={!currentMonth || isDisabled}
-                                        className={`rounded-md py-2 text-lg-variant focus:outline-none focus:ring-2 focus:ring-color-02 ${
+                                        className={`py-2 focus:outline-none focus:ring-2 focus:ring-color-02 ${
                                             currentMonth
                                                 ? isDisabled
-                                                    ? 'cursor-not-allowed text-gray-400'
-                                                    : 'text-white hover:text-color-01'
-                                                : 'text-gray-500'
+                                                    ? 'cursor-not-allowed text-gray-500'
+                                                    : 'text-color-08 hover:text-color-01 dark:text-white'
+                                                : 'text-gray-400'
                                         } ${isSelected ? 'text-color-02' : ''}`}
                                         aria-label={
                                             day

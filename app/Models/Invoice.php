@@ -44,6 +44,17 @@ class Invoice extends Model
         });
     }
 
+    public static function generateRandomLetters($length = 2)
+    {
+        $characters = 'abcdefghijklmnopqrstuvwxyz';
+        $characterLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $characterLength - 1)];
+        }
+        return $randomString;
+    }
+
     /**
      * Generate a unique invoice ID.
      * 
@@ -57,7 +68,7 @@ class Invoice extends Model
     {
         do {
             // Generate a random ID: 2 uppercase letters + 4 digits
-            $id = strtoupper(Str::random(2)) . rand(1000, 9999);
+            $id = strtoupper(self::generateRandomLetters()) . rand(1000, 9999);
         } while (self::where('invoice_id', $id)->exists()); // Ensure uniqueness
 
         return $id;

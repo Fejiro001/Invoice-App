@@ -75,13 +75,18 @@ const PaymentDropdown = () => {
                 ref={buttonRef}
                 onClick={toggleDropdown}
                 onKeyDown={handleKeyDown}
-                className="flex w-full items-center justify-between rounded-md bg-color-03 px-4 py-2 text-left text-white"
+                className="dropdown-button"
                 aria-haspopup="listbox"
                 aria-expanded={isOpen}
                 aria-controls="dropdown-menu"
             >
                 <span>{selected}</span>
-                <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                    className={isOpen ? `rotate-180 transform` : ``}
+                    width="11"
+                    height="7"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
                     <path
                         d="M1 1l4.228 4.228L9.456 1"
                         stroke="#7C5DFA"
@@ -98,7 +103,7 @@ const PaymentDropdown = () => {
                     id="dropdown-menu"
                     role="listbox"
                     aria-activedescendant={selected}
-                    className="absolute z-10 mt-2 w-full rounded-md bg-color-03 shadow-lg"
+                    className="dropdown-content"
                 >
                     {options.map((option, index) => (
                         <li
@@ -108,9 +113,9 @@ const PaymentDropdown = () => {
                             tabIndex={-1}
                             onClick={() => handleSelect(option)}
                             onKeyDown={(e) => handleOptionKeyDown(e, index)}
-                            className={`cursor-pointer px-4 py-2 text-white hover:bg-opacity-25 ${
+                            className={`cursor-pointers p-4 text-color-08 hover:text-color-01 focus:border-color-02 focus:ring-color-02 dark:border-color-04 dark:text-white dark:focus:border-color-02 dark:focus:ring-color-02 ${
                                 selected === option
-                                    ? 'font-bold text-color-02'
+                                    ? 'text-color-02 dark:text-color-02'
                                     : ''
                             }`}
                         >
