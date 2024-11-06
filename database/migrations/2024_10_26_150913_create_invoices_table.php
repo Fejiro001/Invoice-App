@@ -13,7 +13,8 @@ return new class extends Migration {
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->string('invoice_id')->primary();
-            $table->date('payment_due');
+            $table->date('invoice_date');
+            $table->date('payment_due')->default('2024-01-01');
             $table->string('description');
             $table->integer('payment_terms');
             $table->string('client_name');

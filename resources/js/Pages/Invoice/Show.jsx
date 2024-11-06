@@ -69,7 +69,7 @@ export default function Show({ invoice }) {
                             <div>
                                 <h3 className="invoice-h3">Invoice Date</h3>
                                 <p className="invoice-h3-sibling">
-                                    <FormatDate date={invoice.created_at} />
+                                    <FormatDate date={invoice.invoice_date} />
                                 </p>
                             </div>
 

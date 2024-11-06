@@ -24,6 +24,7 @@ class InvoiceSeeder extends Seeder
 
                 $invoiceTotal = $items->sum('total');
                 $invoice->update(['total' => $invoiceTotal]);
+                $invoice->calculatePaymentDue();
             });
     }
 }

@@ -17,9 +17,9 @@ class InvoiceFactory extends Factory
     public function definition(): array
     {
         return [
-            'payment_due' => $this->faker->dateTimeBetween('+1 day', '+1 month'),
+            'invoice_date' => $this->faker->dateTimeBetween('now', '+4 months'),
             'description' => $this->faker->bs(),
-            'payment_terms' => $this->faker->numberBetween(1, 30),
+            'payment_terms' => $this->faker->randomElement([1, 7, 14, 30]),
             'client_name' => $this->faker->name(),
             'client_email' => $this->faker->unique()->safeEmail(),
             'status' => $this->faker->randomElement(['draft', 'paid', 'pending']),

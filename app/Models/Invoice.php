@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
@@ -91,6 +92,24 @@ class Invoice extends Model
     {
         $this->total = $this->items()->sum('total');
         $this->save();
+    }
+
+    /**
+     * Calculate and update the payment due date for the invoice.
+     *
+     * This method calculates the payment due date by adding the payment terms
+     * to the invoice date and saves the updated payment due date to the database.
+     *
+     * @throws \Exception If the invoice date is not set.
+     */
+    public function calculatePaymentDue()
+    {
+        if ($this->invoice_date) {
+            $this->payment_due = Carbon::parse($this->invoice_date)->addDays($this->payment_terms);
+            $this->save();
+        } else {
+            throw new \Exception("Invoice Date is not set.");
+        }
     }
 
     /**

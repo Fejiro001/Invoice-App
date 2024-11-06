@@ -7,10 +7,12 @@ import PaymentDropdown from '@/Components/PaymentDropdown';
 import TextInput from '@/Components/TextInput';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 export default function Create({ setShowCreateInvoice }) {
+    const [newItems, setNewItem] = useState([]);
+
     useEffect(() => {
         document.body.style.overflow = 'hidden';
         return () => {
@@ -18,7 +20,13 @@ export default function Create({ setShowCreateInvoice }) {
         };
     }, []);
 
+    // const { data, setData, post, processing, errors } = useForm();
+
     const isMobile = useMediaQuery({ query: '(max-width:767px)' });
+
+    const addNewItem = () => {
+        setNewItem([...newItems, <AddNewItem key={newItems.length} />]);
+    };
 
     return (
         <AuthenticatedLayout
@@ -177,12 +185,16 @@ export default function Create({ setShowCreateInvoice }) {
                                 <span className="text-left">Total</span>
                             </li>
 
-                            <div className="flex flex-col gap-5">
-                                <AddNewItem />
-                                <button className="rounded-full bg-add-bg py-4 text-color-07 dark:bg-color-04 dark:text-color-06">
+                            <ol className="flex flex-col gap-5">
+                                {newItems}
+                                <button
+                                    type="button"
+                                    onClick={addNewItem}
+                                    className="mt-4 rounded-full bg-add-bg py-4 text-color-07 dark:bg-color-04 dark:text-color-06"
+                                >
                                     + Add New Item
                                 </button>
-                            </div>
+                            </ol>
                         </ol>
                     </div>
                 </form>
